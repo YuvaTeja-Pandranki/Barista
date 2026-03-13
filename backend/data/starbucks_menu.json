@@ -1,0 +1,182 @@
+[
+  {
+    "drink_name": "Lavender Honey Latte",
+    "ingredients": ["espresso", "oat milk", "lavender syrup", "honey"],
+    "price": 6.25,
+    "tags": ["hot", "floral", "lavender", "sweet", "vanilla"]
+  },
+  {
+    "drink_name": "Iced Brown Sugar Oatmilk Shaken Espresso",
+    "ingredients": ["espresso", "oat milk", "brown sugar syrup", "cinnamon"],
+    "price": 5.95,
+    "tags": ["iced", "sweet", "caramel", "bold"]
+  },
+  {
+    "drink_name": "Matcha Crème Frappuccino",
+    "ingredients": ["matcha powder", "whole milk", "ice", "whipped cream"],
+    "price": 5.75,
+    "tags": ["frappuccino", "earthy", "matcha", "sweet", "refreshing"]
+  },
+  {
+    "drink_name": "Chai Tea Latte",
+    "ingredients": ["chai concentrate", "steamed milk", "water"],
+    "price": 5.45,
+    "tags": ["hot", "earthy", "chai", "spiced"]
+  },
+  {
+    "drink_name": "Pumpkin Spice Latte",
+    "ingredients": ["espresso", "steamed milk", "pumpkin spice sauce", "whipped cream"],
+    "price": 6.45,
+    "tags": ["hot", "sweet", "spiced", "classic"]
+  },
+  {
+    "drink_name": "Pink Drink",
+    "ingredients": ["strawberry açaí base", "coconut milk", "freeze-dried strawberries", "ice"],
+    "price": 5.65,
+    "tags": ["iced", "fruity", "refreshing", "berry", "sweet"]
+  },
+  {
+    "drink_name": "Caffè Mocha",
+    "ingredients": ["espresso", "steamed milk", "mocha sauce", "whipped cream"],
+    "price": 5.95,
+    "tags": ["hot", "sweet", "mocha", "chocolate"]
+  },
+  {
+    "drink_name": "Vanilla Sweet Cream Cold Brew",
+    "ingredients": ["cold brew coffee", "vanilla sweet cream", "ice"],
+    "price": 5.45,
+    "tags": ["iced", "bold", "espresso", "vanilla", "sweet"]
+  },
+  {
+    "drink_name": "Caramel Macchiato",
+    "ingredients": ["espresso", "steamed milk", "vanilla syrup", "caramel drizzle"],
+    "price": 5.95,
+    "tags": ["hot", "sweet", "caramel", "vanilla", "classic"]
+  },
+  {
+    "drink_name": "Mango Dragonfruit Refresher",
+    "ingredients": ["mango dragonfruit base", "water", "freeze-dried dragonfruit", "ice"],
+    "price": 4.95,
+    "tags": ["iced", "fruity", "refreshing", "tropical"]
+  },
+  {
+    "drink_name": "Flat White",
+    "ingredients": ["ristretto espresso", "steamed whole milk"],
+    "price": 5.75,
+    "tags": ["hot", "bold", "espresso", "classic"]
+  },
+  {
+    "drink_name": "Iced Caramel Macchiato",
+    "ingredients": ["espresso", "milk", "vanilla syrup", "caramel drizzle", "ice"],
+    "price": 6.15,
+    "tags": ["iced", "sweet", "caramel", "vanilla"]
+  },
+  {
+    "drink_name": "White Chocolate Mocha",
+    "ingredients": ["espresso", "steamed milk", "white chocolate sauce", "whipped cream"],
+    "price": 6.25,
+    "tags": ["hot", "sweet", "chocolate", "mocha"]
+  },
+  {
+    "drink_name": "Strawberry Açaí Refresher",
+    "ingredients": ["strawberry açaí base", "water", "freeze-dried strawberries", "ice"],
+    "price": 5.25,
+    "tags": ["iced", "fruity", "refreshing", "berry"]
+  },
+  {
+    "drink_name": "Honey Oatmilk Latte",
+    "ingredients": ["espresso", "oat milk", "honey blend syrup"],
+    "price": 5.95,
+    "tags": ["hot", "sweet", "floral", "vanilla"]
+  },
+  {
+    "drink_name": "Iced Matcha Latte",
+    "ingredients": ["matcha powder", "milk", "ice"],
+    "price": 5.55,
+    "tags": ["iced", "earthy", "matcha", "refreshing"]
+  },
+  {
+    "drink_name": "Java Chip Frappuccino",
+    "ingredients": ["coffee", "milk", "mocha sauce", "chocolate chips", "ice", "whipped cream"],
+    "price": 5.95,
+    "tags": ["frappuccino", "sweet", "chocolate", "mocha", "bold"]
+  },
+  {
+    "drink_name": "London Fog Tea Latte",
+    "ingredients": ["earl grey tea", "steamed milk", "vanilla syrup"],
+    "price": 5.25,
+    "tags": ["hot", "floral", "vanilla", "earthy"]
+  },
+  {
+    "drink_name": "Iced Vanilla Latte",
+    "ingredients": ["espresso", "milk", "vanilla syrup", "ice"],
+    "price": 5.75,
+    "tags": ["iced", "sweet", "vanilla", "classic"]
+  },
+  {
+    "drink_name": "Caramel Frappuccino",
+    "ingredients": ["coffee", "milk", "caramel syrup", "ice", "whipped cream", "caramel drizzle"],
+    "price": 5.75,
+    "tags": ["frappuccino", "sweet", "caramel", "refreshing"]
+  },
+  {
+    "drink_name": "Espresso Con Panna",
+    "ingredients": ["espresso", "whipped cream"],
+    "price": 3.45,
+    "tags": ["hot", "bold", "espresso", "classic"]
+  },
+  {
+    "drink_name": "Iced Chai Tea Latte",
+    "ingredients": ["chai concentrate", "milk", "ice"],
+    "price": 5.55,
+    "tags": ["iced", "earthy", "chai", "spiced"]
+  },
+  {
+    "drink_name": "Toasted Vanilla Oatmilk Shaken Espresso",
+    "ingredients": ["espresso", "oat milk", "toasted vanilla syrup", "ice"],
+    "price": 5.95,
+    "tags": ["iced", "vanilla", "bold", "espresso"]
+  },
+  {
+    "drink_name": "Hot Chocolate",
+    "ingredients": ["steamed milk", "mocha sauce", "whipped cream"],
+    "price": 4.45,
+    "tags": ["hot", "sweet", "chocolate", "mocha"]
+  },
+  {
+    "drink_name": "Passion Tango Tea Lemonade",
+    "ingredients": ["passion tango tea", "lemonade", "ice"],
+    "price": 4.75,
+    "tags": ["iced", "fruity", "refreshing", "tropical"]
+  },
+  {
+    "drink_name": "Blonde Vanilla Latte",
+    "ingredients": ["blonde espresso", "steamed milk", "vanilla syrup"],
+    "price": 5.75,
+    "tags": ["hot", "sweet", "vanilla", "classic"]
+  },
+  {
+    "drink_name": "Iced Chocolate Almondmilk Shaken Espresso",
+    "ingredients": ["espresso", "almond milk", "chocolate malt powder", "ice"],
+    "price": 5.95,
+    "tags": ["iced", "bold", "espresso", "chocolate"]
+  },
+  {
+    "drink_name": "Cinnamon Dolce Latte",
+    "ingredients": ["espresso", "steamed milk", "cinnamon dolce syrup", "whipped cream"],
+    "price": 5.95,
+    "tags": ["hot", "sweet", "spiced", "caramel"]
+  },
+  {
+    "drink_name": "Peach Green Tea Lemonade",
+    "ingredients": ["green tea", "peach juice", "lemonade", "ice"],
+    "price": 4.95,
+    "tags": ["iced", "fruity", "refreshing", "tropical"]
+  },
+  {
+    "drink_name": "Americano",
+    "ingredients": ["espresso", "hot water"],
+    "price": 3.65,
+    "tags": ["hot", "bold", "espresso", "classic"]
+  }
+]

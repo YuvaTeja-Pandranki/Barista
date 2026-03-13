@@ -1,0 +1,31 @@
+# Render Blueprint: deploy backend + frontend in one go.
+# Dashboard: New → Blueprint → connect repo → add env (see DEPLOY.md) → Deploy.
+
+services:
+  - type: web
+    name: starbucks-mood-api
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: WEATHER_API_KEY
+        sync: false
+
+  - type: web
+    name: starbucks-mood-frontend
+    runtime: static
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://starbucks-mood-api.onrender.com
+      - key: VITE_WEATHER_API_KEY
+        sync: false

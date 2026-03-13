@@ -1,0 +1,20 @@
+# Visual Barista AI — run full stack (backend + frontend) on localhost
+# Usage: docker compose up --build
+# Then open http://localhost (port 80)
+# Copy backend/.env.example to backend/.env and set API keys if needed.
+
+services:
+  backend:
+    build: ./backend
+    container_name: starbucks-mood-backend
+    env_file: ./backend/.env
+    expose:
+      - "8000"
+
+  frontend:
+    build: ./frontend
+    container_name: starbucks-mood-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
