@@ -19,8 +19,6 @@ services:
   - type: web
     name: starbucks-mood-frontend
     runtime: static
-    region: oregon
-    plan: free
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: dist
