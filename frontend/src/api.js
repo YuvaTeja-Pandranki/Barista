@@ -23,3 +23,8 @@ export async function submitFeedback(payload) {
   const { data } = await client.post('/feedback', payload)
   return data
 }
+
+export async function fetchWeather(location) {
+  const { data } = await client.get('/weather', { params: { location } })
+  return data
+}

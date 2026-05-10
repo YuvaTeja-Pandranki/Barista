@@ -127,8 +127,7 @@ import { ref, computed, watch, onBeforeUnmount } from 'vue'
 import { Mic } from 'lucide-vue-next'
 import GlassInput from './components/GlassInput.vue'
 import DrinkCard from './components/DrinkCard.vue'
-import { getDrinkRecommendation, fetchMenu } from './api'
-import axios from 'axios'
+import { getDrinkRecommendation, fetchMenu, fetchWeather as apiFetchWeather } from './api'
 
 const MOODS = [
   'happy', 'relaxed', 'stressed', 'tired', 'excited',
@@ -137,7 +136,6 @@ const MOODS = [
   'content', 'restless', 'peaceful', 'creative', 'hungry',
 ]
 
-const WEATHER_KEY = import.meta.env.VITE_WEATHER_API_KEY || ''
 
 const mood            = ref('')
 const location        = ref('')
@@ -279,19 +277,15 @@ watch(location, (val) => {
     return
   }
 
-  if (!WEATHER_KEY) return
   weatherTimer = setTimeout(() => fetchWeather(trimmed), 500)
 })
 
 async function fetchWeather(loc) {
   const normalizedLoc = loc.trim().toLowerCase()
   try {
-    const { data } = await axios.get('https://api.weatherapi.com/v1/current.json', {
-      params: { key: WEATHER_KEY, q: normalizedLoc },
-      timeout: 8000,
-    })
+    const data = await apiFetchWeather(normalizedLoc)
 
-    const returnedCity = (data.location.name || '').toLowerCase()
+    const returnedCity = (data.location_name || '').toLowerCase()
     if (returnedCity !== normalizedLoc) {
       weatherText.value = ''
       weatherTemp.value = null
@@ -300,14 +294,13 @@ async function fetchWeather(loc) {
       return
     }
 
-    weatherText.value = data.current.condition.text
-    weatherTemp.value = Math.round(data.current.temp_c)
+    weatherText.value = data.condition
+    weatherTemp.value = data.temp_c
     weatherError.value = ''
     locationError.value = ''
 
-    const raw = data.location.localtime
-    if (raw) {
-      const dt = new Date(raw.replace(' ', 'T'))
+    if (data.localtime) {
+      const dt = new Date(data.localtime.replace(' ', 'T'))
       localTime.value = dt.toLocaleTimeString('en-US', {
         hour: 'numeric', minute: '2-digit', hour12: true,
       })

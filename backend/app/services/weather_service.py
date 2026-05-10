@@ -17,6 +17,30 @@ logger = logging.getLogger(__name__)
 WEATHER_URL = "http://api.weatherapi.com/v1/current.json"
 
 
+def get_weather_display(location: str) -> dict:
+    """Return display-friendly weather data for the frontend proxy endpoint."""
+    key = os.getenv("WEATHER_API_KEY", "")
+    if not key:
+        raise WeatherUnavailableError(
+            "Weather service is unavailable: WEATHER_API_KEY is not set."
+        )
+    try:
+        resp = requests.get(WEATHER_URL, params={"key": key, "q": location}, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+    except requests.RequestException as e:
+        raise WeatherUnavailableError(
+            "Weather service is temporarily unavailable."
+        ) from e
+
+    return {
+        "condition": data["current"]["condition"]["text"],
+        "temp_c": round(data["current"]["temp_c"]),
+        "localtime": data["location"]["localtime"],
+        "location_name": data["location"]["name"],
+    }
+
+
 def get_weather_context(location: str) -> dict:
     key = os.getenv("WEATHER_API_KEY", "")
 

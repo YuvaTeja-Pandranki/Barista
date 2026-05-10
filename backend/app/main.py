@@ -7,6 +7,7 @@ from app.config import settings
 from app.routes.debug import router as debug_router
 from app.routes.feedback import router as feedback_router
 from app.routes.recommendation import router as recommendation_router
+from app.routes.weather import router as weather_router
 from app.services.menu_service import get_full_menu
 
 app = FastAPI(
@@ -29,6 +30,7 @@ app.add_middleware(
 app.include_router(recommendation_router)
 app.include_router(debug_router)
 app.include_router(feedback_router)
+app.include_router(weather_router)
 
 
 @app.get("/health", tags=["System"])
