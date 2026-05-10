@@ -19,8 +19,17 @@ dist/
 dist-ssr/
 *.local
 
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
 # Logs and OS
 *.log
 .DS_Store
 .idea/
 .vscode/
+
+# Build artifacts / binaries
+*.zip
+*.pdf
