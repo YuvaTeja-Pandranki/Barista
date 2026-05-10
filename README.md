@@ -4,6 +4,12 @@ A full-stack AI application that recommends Starbucks drinks based on your mood 
 
 ---
 
+## App Preview
+
+![App UI](assets/app-ui.png)
+
+---
+
 ## How It Works
 
 ```
@@ -30,6 +36,18 @@ User Input (mood + location)
         ▼
   [Feedback Loop]       ← GEPA optimizer learns from thumbs up/down
 ```
+
+---
+
+## Sequence Flow
+
+![Sequence Diagram](assets/sequence-diagram.png)
+
+---
+
+## System Architecture
+
+![Architecture Diagram](assets/architecture-diagram.png)
 
 ---
 
