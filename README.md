@@ -1,6 +1,14 @@
 # Visual Barista — Mood-to-Menu Hyper-Personalization Engine
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://starbucks-mood-frontend.onrender.com)
+
 A full-stack AI application that recommends Starbucks drinks based on your mood and real-time weather context. Tell it how you feel and where you are — it does the rest.
+
+---
+
+## Live Demo
+
+[https://starbucks-mood-frontend.onrender.com](https://starbucks-mood-frontend.onrender.com)
 
 ---
 
