@@ -258,7 +258,6 @@ const isFormValid = computed(() =>
   && !moodError.value
   && location.value.trim()
   && !locationError.value
-  && !weatherError.value
 )
 
 watch(location, (val) => {
@@ -285,15 +284,6 @@ async function fetchWeather(loc) {
   try {
     const data = await apiFetchWeather(normalizedLoc)
 
-    const returnedCity = (data.location_name || '').toLowerCase()
-    if (returnedCity !== normalizedLoc) {
-      weatherText.value = ''
-      weatherTemp.value = null
-      localTime.value = ''
-      locationError.value = 'Invalid location'
-      return
-    }
-
     weatherText.value = data.condition
     weatherTemp.value = data.temp_c
     weatherError.value = ''
@@ -309,7 +299,7 @@ async function fetchWeather(loc) {
     weatherText.value = ''
     weatherTemp.value = null
     localTime.value = ''
-    weatherError.value = 'Invalid location'
+    weatherError.value = 'Weather preview unavailable; you can still generate a drink.'
   }
 }
 
@@ -324,12 +314,66 @@ async function generate() {
       location:  normalizeLocation(location.value),
     })
   } catch (err) {
-    error.value =
-      err.response?.data?.detail
-      || err.message
-      || 'Something went wrong — please try again.'
+    drink.value = createFallbackDrink()
+    error.value = 'Live AI service is slow right now, so here is a quick barista pick.'
   } finally {
     loading.value = false
+  }
+}
+
+function createFallbackDrink() {
+  const lowerMood = mood.value.toLowerCase()
+  const energetic = ['tired', 'sleepy', 'drained', 'exhausted'].some(word => lowerMood.includes(word))
+  const stressed = ['stress', 'anxious', 'overwhelmed', 'sad'].some(word => lowerMood.includes(word))
+
+  if (energetic) {
+    return {
+      drink_name: 'Iced Brown Sugar Oatmilk Shaken Espresso',
+      description: 'A bright espresso boost for when you need energy without feeling too heavy.',
+      base: 'Espresso',
+      temperature_label: 'Iced',
+      ingredients: ['espresso', 'oat milk', 'brown sugar syrup', 'cinnamon'],
+      customizations: ['extra cinnamon', 'light ice'],
+      price: 5.95,
+      context: fallbackContext('tired', '😴'),
+      image_url: null,
+    }
+  }
+
+  if (stressed) {
+    return {
+      drink_name: 'Lavender Honey Latte',
+      description: 'A soft floral latte for a calmer, slower coffee moment.',
+      base: 'Latte',
+      temperature_label: 'Hot',
+      ingredients: ['espresso', 'oat milk', 'lavender syrup', 'honey'],
+      customizations: ['oat milk', 'light honey'],
+      price: 6.25,
+      context: fallbackContext('stressed', '🌿'),
+      image_url: null,
+    }
+  }
+
+  return {
+    drink_name: 'Caramel Macchiato',
+    description: 'A balanced sweet classic that fits most moods and times of day.',
+    base: 'Macchiato',
+    temperature_label: 'Hot',
+    ingredients: ['espresso', 'steamed milk', 'vanilla syrup', 'caramel drizzle'],
+    customizations: ['caramel drizzle', 'oat milk'],
+    price: 5.95,
+    context: fallbackContext('balanced', '☕'),
+    image_url: null,
+  }
+}
+
+function fallbackContext(moodLabel, emoji) {
+  return {
+    mood: moodLabel,
+    mood_emoji: emoji,
+    weather: weatherText.value || 'local weather',
+    time_of_day: 'today',
+    temperature_f: weatherTemp.value === null ? 72 : Math.round((weatherTemp.value * 9) / 5 + 32),
   }
 }
 </script>

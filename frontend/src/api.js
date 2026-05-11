@@ -3,7 +3,7 @@ import axios from 'axios'
 const client = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: { 'Content-Type': 'application/json' },
-  timeout: 30_000,
+  timeout: 90_000,
 })
 
 export async function getDrinkRecommendation({ mood_text, location }) {
